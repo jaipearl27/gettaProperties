@@ -3,7 +3,7 @@
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className="relative z-10 bg-white">Footer</div>
   )
 }
 

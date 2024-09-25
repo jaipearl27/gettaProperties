@@ -65,8 +65,8 @@ const Header = () => {
 
   return (
     <nav
-      className={`w-full  z-50 fixed  glass-effect top-0 lg:glass-effect left-0 text-white py-4 px-5 sm:px-10 lg:py-8 font-semibold xl:px-20 transition-all ease-in-out duration-500 ${
-        scrolled ? "lg:bg-black" : ""
+      className={`w-full  z-50 fixed   top-0 lg:glass-effect left-0  py-4 px-5 sm:px-10 lg:py-8 font-semibold xl:px-20 transition duration-200 ${
+        scrolled ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
       <div className="flex lg:transparent justify-between">
@@ -99,7 +99,7 @@ const Header = () => {
         </div>
         <div className="items-center flex  justify-end col-span-6 lg:hidden ">
           <HiMenuAlt4
-            className="text-black h-full w-7 cursor-pointer"
+            className={` h-full w-7 cursor-pointer ${scrolled ? " text-white" : " text-black"} `}
             onClick={handleMenuClick}
           />
         </div>

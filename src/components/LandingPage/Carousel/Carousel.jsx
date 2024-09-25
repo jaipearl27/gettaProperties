@@ -33,7 +33,10 @@ const Carousel = ({propertiesData = []}) => {
         speed: 500,
         slidesToShow: visibleSlides,
         slidesToScroll: 1,
-        arrows:false
+        arrows:false,
+        afterChange: current => {
+          console.log("after",current);
+        }
       };
     
       const next = () => {

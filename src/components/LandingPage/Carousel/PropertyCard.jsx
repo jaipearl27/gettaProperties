@@ -3,19 +3,24 @@
 import { FaBed, FaBath, FaChevronRight, FaChevronLeft   } from "react-icons/fa";
 import { HiOutlineSquare2Stack } from "react-icons/hi2";
 import { CiLocationOn } from "react-icons/ci";
-import React, { useRef } from "react";
+import React, { useRef, useState   } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const PropertyCard = ({cardData}) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   let sliderRef = useRef(null);
   const settings = {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
-    arrows: false
+    arrows: false,
+    afterChange: current => {
+      console.log("after",current);
+      setCurrentSlide(current);
+    }
   };
 
   const next = () => {
@@ -34,11 +39,11 @@ const PropertyCard = ({cardData}) => {
 
       <div className=" absolute top-24 w-full z-10 flex justify-between px-10 gap-5 ">
         <button className="button" onClick={previous}>
-            <FaChevronLeft className=" text-white" />
+            <FaChevronLeft className={` text-white ${ currentSlide === 0 ? "opacity-30" : ""}`}/>
         </button>
 
         <button className="button" onClick={next}>
-            <FaChevronRight className=" text-white" />
+            <FaChevronRight className={` text-white ${ currentSlide === cardData.imgData.length - 1 ? "opacity-30" : ""}`} />
         </button>
       </div>
       <Slider

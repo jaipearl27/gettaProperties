@@ -33,7 +33,7 @@ const routes = [
 ];
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+  // const [scrolled, setScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
@@ -43,10 +43,10 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50; // Adjust the value as needed
-      setScrolled(isScrolled);
-    };
+    // const handleScroll = () => {
+    //   const isScrolled = window.scrollY > 50; // Adjust the value as needed
+    //   setScrolled(isScrolled);
+    // };
 
     const handleResize = () => {
       if (window.innerWidth > 1024) {
@@ -54,20 +54,18 @@ const Header = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      // window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <nav
-      className={`w-full  z-50 fixed   top-0 lg:glass-effect left-0  py-4 px-5 sm:px-10 lg:py-8 font-semibold xl:px-20 transition duration-200 ${
-        scrolled ? "bg-black text-white" : "bg-white text-black"
-      }`}
+      className={`w-full  z-50 fixed shadow-lg  top-0 lg:glass-effect left-0 bg-white text-black  py-4 px-5 sm:px-10 lg:py-8 font-semibold xl:px-20 transition duration-200 `}
     >
       <div className="flex lg:transparent justify-between">
         <div className=" h-full min-w-28">
@@ -99,7 +97,7 @@ const Header = () => {
         </div>
         <div className="items-center flex  justify-end col-span-6 lg:hidden ">
           <HiMenuAlt4
-            className={` h-full w-7 cursor-pointer ${scrolled ? " text-white" : " text-black"} `}
+            className={` h-full w-7 cursor-pointer text-black `}
             onClick={handleMenuClick}
           />
         </div>
@@ -108,7 +106,7 @@ const Header = () => {
       <div
         className={`${
           isSidebarOpen ? "left-0" : "-left-72"
-        } fixed w-72 top-0 bg-white  h-screen  transform ease-in-out duration-700 z-10`}
+        } fixed w-72 top-0 bg-white shadow-lg shadow-black/50 h-screen  transform ease-in-out duration-700 z-10`}
       >
         <div className=" h-fit min-w-28 py-4 px-5">
           <Image src={logo} alt="Logo" className="h-full" />

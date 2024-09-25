@@ -2,9 +2,9 @@ import React from 'react'
 
 const PropertyServiceCard = ({icon, title, description,buttonLabel}) => {
   return (
-    <div className="w-full ">
+    <div className="w-full group">
             <div className="w-full flex justify-center">
-              <div className="relative p-3 group">
+              <div className="relative p-3 ">
                 
                 
                 <div className="absolute bottom-0 left-0 rounded-full group-hover:h-[100%] group-hover:w-[100%] h-[50%] w-[50%] bg-[#e7c873] transition-all duration-300 ease-in-out"></div>

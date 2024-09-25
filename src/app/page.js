@@ -1,7 +1,7 @@
 "use client";
 import Carousel from "@/components/LandingPage/Carousel/Carousel";
 import PropertyServiceSection from "@/components/LandingPage/Property/PropertyServiceSection";
-import { HiOutlineArrowSmRight } from "react-icons/hi";
+import PropertyRegionSection from "@/components/LandingPage/Property/PropertyRegionSection";
 
 const properties = [
   {
@@ -135,63 +135,51 @@ const CitiesData = [
     imgUrl:
       "https://im.whatshot.in/img/2021/Jan/sankey-tank-rashmiklr-insta-cropped-1611299084.jpg",
     propertyCount: 13,
-  }
+  },
 ];
 export default function Home() {
   return (
     <>
       <div className="w-full  ">
-        <div className=" h-screen">
+        <div className=" h-[100dvh] justify-end flex flex-col">
+          <div className="z-10 mb-20 relative flex space-y-1 sm:space-y-2 flex-col justify-center text-white p-5 lg:p-16 max-w-[55rem]">
+            <h1 className="sm:text-6xl font-bold text-3xl text-balance  leading-tight">
+              Find Your Dream Properties Quickly and Easily
+            </h1>
+            <p className=" text-balance ">
+              A Unique Platform with A to Z solutions for all types of
+              Residential and Commercial Real Estate Services in
+              Buying/Selling/Rental/Leasing.
+            </p>
+            <p>Search your Dream Properties on Getta Properties.</p>
+            <p>We have been operating for more than 10 years.</p>
+          </div>
           <img
             className="fixed inset-0 z-0 h-full w-full object-cover "
             alt="hero banner"
             src="https://justhomnextjs.vercel.app/_next/static/media/slider-home-10.e675bbe1.jpg"
           />
         </div>
-        <div className="bg-white z-10 relative w-full pt-20">
+        <div className="bg-white z-10 relative w-full pt-32">
           <PropertyServiceSection />
 
-          <div className="text-3xl  font-bold py-8 px-6 xl:px-14  text-black">
+          <div className="text-3xl  font-bold py-12 mt-20 px-6 xl:px-14  text-black">
             Properties by region
           </div>
 
-          <div className="flex gap-2 flex-wrap justify-center">
-            {CitiesData.map((city, index) => (
-              <div
-                key={index}
-                className="h-0 w-[48%] xl:px-14 relative overflow-hidden pb-[60%] md:w-[32%] md:pb-[40%] lg:w-[23%] lg:pb-[28%] group"
-              >
-                <div className="z-10 relative pt-[15%] pl-10 xl:pl-5 h-full space-y-[70%] text-white">
-                  <div>
-                    <div>{city.propertyCount} Properties</div>
-                    <div className="text-2xl font-bold">{city.name}</div>
-                  </div>
-                  <div>
-                    <button className=" bg-white text-black flex justify-center items-center p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <HiOutlineArrowSmRight className="w-8 h-8"/>
-                    </button>
-                  </div>
-                </div>
-                <img
-                  src={city.imgUrl}
-                  alt="img"
-                  className="w-full group-hover:scale-110 z-0 transition-transform ease-in-out duration-500 object-cover h-full absolute top-0 left-0 rounded-lg"
-                />
-              </div>
-            ))}
-          </div>
+          <PropertyRegionSection CitiesData={CitiesData} />
 
-          <div className="text-3xl  font-bold py-8 px-6 xl:px-14  text-black">
+          <div className="text-3xl  font-bold py-12 mt-20 px-6 xl:px-14  text-black">
             Featured properties
           </div>
-          <div className=" w-full px-4 xl:px-12 py-14">
+          <div className=" w-full px-4 xl:px-12 pb-14">
             <Carousel propertiesData={properties} />
           </div>
 
-          <div className="text-3xl  font-bold py-8 px-6 xl:px-14  text-black">
+          <div className="text-3xl  font-bold py-12 px-6 xl:px-14  text-black">
             Newly added properties
           </div>
-          <div className=" w-full px-4 xl:px-12 py-14">
+          <div className=" w-full px-4 xl:px-12 pb-14">
             <Carousel propertiesData={properties} />
           </div>
         </div>

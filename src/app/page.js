@@ -144,33 +144,36 @@ const propertyTypes = [
   {
     Count: 23,
     label: "Apartement",
-    imgUrl: "https://justhomnextjs.vercel.app/images/house/featured-14.jpg"
+    imgUrl: "https://justhomnextjs.vercel.app/images/house/featured-14.jpg",
   },
   {
     Count: 23,
     label: "Villa",
-    imgUrl: "https://justhomnextjs.vercel.app/images/house/featured-13.jpg"
+    imgUrl: "https://justhomnextjs.vercel.app/images/house/featured-13.jpg",
   },
   {
     Count: 23,
     label: "Independent House",
-    imgUrl: "https://5.imimg.com/data5/SELLER/Default/2021/2/SE/NM/LG/14043461/independent-house-construction-service-1000x1000.jpg"
+    imgUrl:
+      "https://5.imimg.com/data5/SELLER/Default/2021/2/SE/NM/LG/14043461/independent-house-construction-service-1000x1000.jpg",
   },
   {
     Count: 23,
     label: "Row Houses",
-    imgUrl: "https://t3.ftcdn.net/jpg/06/23/55/30/240_F_623553073_0teW1mDcxjc3nEAE9UXM1Y8Kbg4zUzmT.jpg"
+    imgUrl:
+      "https://t3.ftcdn.net/jpg/06/23/55/30/240_F_623553073_0teW1mDcxjc3nEAE9UXM1Y8Kbg4zUzmT.jpg",
   },
   {
     Count: 23,
     label: "Plots",
-    imgUrl: "https://media.istockphoto.com/id/1338058166/photo/land-or-landscape-of-green-field-in-aerial-view-and-home-or-house-icon.jpg?s=612x612&w=0&k=20&c=c-VlOIv3Y18NyZ5qLDZbaNNcapXo2U3yctzf8KkltN0="
+    imgUrl:
+      "https://media.istockphoto.com/id/1338058166/photo/land-or-landscape-of-green-field-in-aerial-view-and-home-or-house-icon.jpg?s=612x612&w=0&k=20&c=c-VlOIv3Y18NyZ5qLDZbaNNcapXo2U3yctzf8KkltN0=",
   },
-  // {
-  //   label: "More",
-  //   imgUrl: "https://3.imimg.com/data3/DO/AV/MY-10504611/farm-house-1000x1000.jpg"
-  // }
-]
+  {
+    label: "More",
+    imgUrl: "https://3.imimg.com/data3/DO/AV/MY-10504611/farm-house-1000x1000.jpg"
+  }
+];
 
 const Partners = [
   "https://gettaproperties.com/63091d69188a2236003ce924d54204ca.png",
@@ -186,98 +189,99 @@ const Partners = [
 const testimonialData = [
   {
     imgUrl: "https://img.youtube.com/vi/WrkCziYVofo/sddefault.jpg",
-    content: "It's so difficult to do real estate transactions in Bengaluru given the fact that I am not here in Bengaluru. I am an Indian American settled in Milwaukee. I was looking for a trust worthy real estate agent to sell my property in bengaluru. I found Getta properties online, it's very simple to post properties and get a buyer. I posted my property on www.gettaproperties.com, Deepa called me up and helped me get the khata and property taxes sorted. I was able to find a buyer and sell my property. The entire process was transparent and easy. Thank you",
-    name: 'Mr. & Mrs. Aggarwal',
+    content:
+      "It's so difficult to do real estate transactions in Bengaluru given the fact that I am not here in Bengaluru. I am an Indian American settled in Milwaukee. I was looking for a trust worthy real estate agent to sell my property in bengaluru. I found Getta properties online, it's very simple to post properties and get a buyer. I posted my property on www.gettaproperties.com, Deepa called me up and helped me get the khata and property taxes sorted. I was able to find a buyer and sell my property. The entire process was transparent and easy. Thank you",
+    name: "Mr. & Mrs. Aggarwal",
     designation: "Chartered Accountants",
   },
   {
-    content: "It's so difficult to do real estate transactions in Bengaluru given the fact that I am not here in Bengaluru. I am an Indian American settled in Milwaukee. I was looking for a trust worthy real estate agent to sell my property in bengaluru. I found Getta properties online, it's very simple to post properties and get a buyer. I posted my property on www.gettaproperties.com, Deepa called me up and helped me get the khata and property taxes sorted. I was able to find a buyer and sell my property. The entire process was transparent and easy. Thank you",
-    name: 'Dr. Chandrika',
+    content:
+      "It's so difficult to do real estate transactions in Bengaluru given the fact that I am not here in Bengaluru. I am an Indian American settled in Milwaukee. I was looking for a trust worthy real estate agent to sell my property in bengaluru. I found Getta properties online, it's very simple to post properties and get a buyer. I posted my property on www.gettaproperties.com, Deepa called me up and helped me get the khata and property taxes sorted. I was able to find a buyer and sell my property. The entire process was transparent and easy. Thank you",
+    name: "Dr. Chandrika",
     designation: "Cardio Vascular Surgeon",
-  }
+  },
+  {
+    content:
+      "Searches for multiplexes, property comparisons, and the loan estimator. Works great. It provides detailed insights on market trends, financing options, and helps users make informed decisions based on real-time data. Easy to use and highly recommended for investors and home buyers alike.",
+    name: "Cameron Williamson",
+    designation: "Designer",
+  },
+  {
+    content:
+      "Finds single-family homes, apartment buildings, and offers mortgage calculators. Extremely user-friendly. The platform also delivers personalized recommendations and neighborhood insights, ensuring you find the perfect property. Ideal for first-time buyers and seasoned investors looking for comprehensive tools.",
+    name: "Manish Sain Gupta",
+    designation: "Backend Developer",
+  },
 ];
 export default function Home() {
   return (
-    <>
-      <div className="w-full  ">
-        <div className=" h-[100dvh] justify-end flex flex-col">
-          <div className="z-10 mb-20 relative flex space-y-1 sm:space-y-2 flex-col justify-center text-white p-5 lg:p-16 max-w-[55rem]">
-            <h1 className="sm:text-6xl font-bold text-3xl text-balance  leading-tight">
-              Find Your Dream Properties Quickly and Easily
-            </h1>
-            <p className=" text-balance ">
-              A Unique Platform with A to Z solutions for all types of
-              Residential and Commercial Real Estate Services in
-              Buying/Selling/Rental/Leasing.
-            </p>
-            <p>
-              Search your Dream Properties on{" "}
-              <span className="font-semibold">Getta Properties</span>.
-            </p>
-            <p>We have been operating for more than 10 years.</p>
-          </div>
-          <img
-            className="fixed inset-0 z-0 h-full w-full object-cover "
-            alt="hero banner"
-            src="https://justhomnextjs.vercel.app/_next/static/media/slider-home-10.e675bbe1.jpg"
-          />
+    <div className="w-full  ">
+      <div className=" h-[100dvh] justify-end flex flex-col">
+        <div className="z-10 mb-20 relative flex space-y-1 sm:space-y-2 flex-col justify-center text-white p-5 lg:p-16 max-w-[55rem]">
+          <h1 className="sm:text-6xl font-bold text-3xl text-balance  leading-tight">
+            Find Your Dream Properties Quickly and Easily
+          </h1>
+          <p className=" text-balance ">
+            A Unique Platform with A to Z solutions for all types of Residential
+            and Commercial Real Estate Services in
+            Buying/Selling/Rental/Leasing.
+          </p>
+          <p>
+            Search your Dream Properties on{" "}
+            <span className="font-semibold">Getta Properties</span>.
+          </p>
+          <p>We have been operating for more than 10 years.</p>
         </div>
-        <div className="bg-white z-10 relative w-full overflow-x-hidden pt-32">
-          <div className="flex gap-5 xl:px-16 pb-40 px-5 md:px-10 overflow-x-scroll no-scrollbar">
-            {
-              propertyTypes.map((item, index) => (
-                <PropertyTypeCard
-                  key={index}
-                  {...item}
-                />
-              ))
-            }
-            
-          </div>
-          <PropertyServiceSection />
+        <img
+          className="fixed inset-0 z-0 h-full w-full object-cover "
+          alt="hero banner"
+          src="https://justhomnextjs.vercel.app/_next/static/media/slider-home-10.e675bbe1.jpg"
+        />
+      </div>
+      <div className="bg-white z-10 relative px-5 md:px-10 xl:px-16 w-full overflow-x-hidden pt-32">
+        <div className="flex gap-5  pb-40  overflow-x-scroll no-scrollbar">
+          {propertyTypes.map((item, index) => (
+            <PropertyTypeCard key={index} {...item} />
+          ))}
+        </div>
+        <PropertyServiceSection />
 
-          <div className="text-3xl  font-bold py-16 mt-20 px-6 xl:px-14  text-black">
-            Properties by region
-          </div>
+        <div className="text-3xl  font-bold py-16 mt-20  text-black">
+          Properties by region
+        </div>
 
-          <PropertyRegionSection CitiesData={CitiesData} />
+        <PropertyRegionSection CitiesData={CitiesData} />
 
-          <div className="text-3xl  font-bold py-12 mt-20 px-6 xl:px-14  text-black">
-            Featured properties
-          </div>
-          <div className=" w-full px-4 xl:px-12 pb-14">
-            <Carousel propertiesData={properties} />
-          </div>
+        <div className="text-3xl  font-bold py-12 mt-20  text-black">
+          Featured properties
+        </div>
+        <div className=" w-full pb-14">
+          <Carousel propertiesData={properties} />
+        </div>
 
-          <div className="text-3xl  font-bold py-12 px-6 xl:px-14  text-black">
-            Newly added properties
-          </div>
-          <div className=" w-full px-4 xl:px-12 pb-14">
-            <Carousel propertiesData={properties} />
-          </div>
+        <div className="text-3xl  font-bold py-12  text-black">
+          Newly added properties
+        </div>
+        <div className=" w-full pb-14">
+          <Carousel propertiesData={properties} />
+        </div>
 
-          <div className="text-3xl  font-bold py-12 px-6 xl:px-14  text-black">
-            Testimonials
-          </div>
-          <div className=" w-full px-4 xl:px-12 pb-14">
-            <Testimonials testimonialData={testimonialData} />
-          </div>
+        <div className="text-3xl  font-bold py-12  text-black">
+          Testimonials
+        </div>
+        <div className=" w-full pb-14">
+          <Testimonials testimonialData={testimonialData} />
+        </div>
 
-          <div className="text-3xl text-center font-bold py-12 px-6 xl:px-14  text-black">
-            Our Partners
-          </div>
-          <div className=" w-full px-4 xl:px-12 pb-14  flex flex-wrap items-center justify-center gap-16">
-            {Partners.map((partner, index) => (
-              <img
-                src={partner}
-                alt="Logo"
-                key={index}
-                className="w-36 h-fit"
-              />
-            ))}
-          </div>
+        <div className="text-3xl text-center font-bold py-12  text-black">
+          Our Partners
+        </div>
+        <div className=" w-full pb-14  flex flex-wrap items-center justify-center gap-12">
+          {Partners.map((partner, index) => (
+            <img src={partner} alt="Logo" key={index} className="w-36 h-fit" />
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

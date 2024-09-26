@@ -7,8 +7,10 @@ import React, { useRef, useState   } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/navigation";
 
 const PropertyCard = ({cardData}) => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   let sliderRef = useRef(null);
   const settings = {
@@ -22,7 +24,11 @@ const PropertyCard = ({cardData}) => {
       setCurrentSlide(current);
     }
   };
-
+  
+  const handleCardClick = () => {
+    console.log("clicked",cardData);
+    router.push(`/properties/${cardData.id}`);
+  }
   const next = () => {
     sliderRef.slickNext();
   };
@@ -53,7 +59,7 @@ const PropertyCard = ({cardData}) => {
         {...settings}
       >
         {cardData.imgData.map((item, index) => (
-          <div key={index} className="p-2">
+          <div key={index} className="p-2 cursor-pointer" onClick={handleCardClick} >
             <div className="border rounded-lg shadow-lg overflow-hidden relative bg-black">
               {/* Image block */}
               <img className="w-full sm:h-32 lg:h-44 md:h-36 xl:h-48 object-cover" alt="img" src={item.imgUrl} />

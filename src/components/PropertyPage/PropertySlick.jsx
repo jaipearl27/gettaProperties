@@ -66,6 +66,7 @@ const PropertySlick = (props) => {
             <img
               className="w-full h-full rounded-lg object-cover relative inset-0"
               alt="img"
+              key={index}
               src={item.imgUrl}
             />
           ))}

@@ -3,7 +3,7 @@ import { HiOutlineArrowSmRight } from "react-icons/hi";
 
 const PropertyRegionSection = ({ CitiesData }) => {
   return (
-    <div className="flex gap-2 flex-wrap justify-center">
+    <div className="flex gap-2 flex-wrap justify-between">
       {CitiesData.map((city, index) => (
         <div
           key={index}
@@ -11,8 +11,8 @@ const PropertyRegionSection = ({ CitiesData }) => {
         >
           <div className="z-10 relative pt-[15%] pl-10 xl:pl-5 h-full space-y-[70%]  text-white">
             <div>
-              <div>{city.propertyCount} Properties</div>
-              <div className="text-2xl font-bold">{city.name}</div>
+              <div className="text-sm md:text-lg">{city.propertyCount} Properties</div>
+              <div className=" text-lg md:text-2xl font-bold">{city.name}</div>
             </div>
             <div>
               <button className=" bg-white text-black flex justify-center items-center p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">

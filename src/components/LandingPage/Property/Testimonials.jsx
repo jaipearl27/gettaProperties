@@ -4,7 +4,7 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 const Testimonials = (props) => {
     const {testimonialData } = props;
   return (
-    <div className="flex gap-7">
+    <div className="flex gap-7 overflow-x-scroll no-scrollbar">
       {testimonialData.map((item, index) => (
         <div key={index} className="flex sm:flex-row flex-col justify-between sm:min-w-fit min-w-full sm:h-64">
           {item.imgUrl && (

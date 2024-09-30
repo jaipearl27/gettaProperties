@@ -2,16 +2,20 @@
 import PropertySlick from "@/components/PropertyPage/PropertySlick";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { CiLocationOn } from "react-icons/ci";
+import { CiLocationOn, CiCircleCheck } from "react-icons/ci";
 import { BiBuildingHouse } from "react-icons/bi";
-import { IoHammerOutline } from "react-icons/io5";
+import {
+  IoHammerOutline,
+  IoPricetagOutline,
+  IoPlayOutline,
+} from "react-icons/io5";
 import { HiOutlineSquare2Stack } from "react-icons/hi2";
-import { FaBed, FaBath } from "react-icons/fa";
+import { FaBed, FaBath, FaStar } from "react-icons/fa";
 import { GiHomeGarage } from "react-icons/gi";
 import { VscFilePdf } from "react-icons/vsc";
-import { CiCircleCheck } from "react-icons/ci";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { GoArrowRight } from "react-icons/go";
 
 const cardData = {
   id: 1,
@@ -48,6 +52,10 @@ const cardData = {
 
 export default function PropertyPage() {
   const { id } = useParams();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const toggleModal = () => {
+    setIsVideoModalOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     console.log(id);
@@ -71,7 +79,7 @@ export default function PropertyPage() {
         </div>
       </div>
 
-      <div className="w-full flex xl: gap-16">
+      <div className="w-full flex md:gap-5 xl:gap-16">
         <div className="w-full lg:w-2/3 ">
           <PropertySlick imgArray={cardData.imgData} />
           <PropertyDetails cardData={cardData} />
@@ -104,7 +112,23 @@ export default function PropertyPage() {
           <EnergyClassSection />
           <FactsNFeatureSection />
           <ScheduleTourComponent isPositionedOnTop={false} />
+          <FloorPlanSection />
           <ContactInfoSection isPositionedOnTop={false} />
+          <div className="my-16">
+            <h2 className="text-xl font-bold mb-6">Video</h2>
+            <div className=" relative w-full">
+              <img
+                className="w-full relative rounded-xl"
+                src="https://justhomnextjs.vercel.app/images/image-box/video-2.jpg"
+                alt="videoPlaveholder"
+              />
+              <div
+              onClick={toggleModal}
+              className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 backdrop-blur-sm  rounded-full flex justify-center items-center">
+                <IoPlayOutline className="text-white h-6 w-6"/>
+              </div>
+            </div>
+          </div>
           <ReviewsSection />
           <LeaveReviewSection />
         </div>
@@ -113,6 +137,13 @@ export default function PropertyPage() {
           <ContactInfoSection />
         </div>
       </div>
+      {isVideoModalOpen && (
+        <VideoModal
+          isVideoModalOpen={isVideoModalOpen}
+          setIsVideoModalOpen={setIsVideoModalOpen}
+          toggleModal={toggleModal}
+        />
+      )}
     </div>
   );
 }
@@ -321,13 +352,11 @@ const FactsNFeatureSection = () => {
   );
 };
 
-import { GoArrowRight } from "react-icons/go";
-
 const ScheduleTourComponent = ({ isPositionedOnTop = true }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedOption, setSelectedOption] = useState(0);
   return (
-    <div className="p-7 w-full">
+    <div className={` w-full ${isPositionedOnTop ? "p-7" : "py-7"}`}>
       <h2 className="text-xl font-bold mb-5">Schedule a Tour</h2>
 
       <div
@@ -412,7 +441,7 @@ const ScheduleTourComponent = ({ isPositionedOnTop = true }) => {
 
 const ContactInfoSection = ({ isPositionedOnTop = true }) => {
   return (
-    <div className="p-7 w-full">
+    <div className={` w-full ${isPositionedOnTop ? "p-7" : "py-7"}`}>
       <h2 className="text-xl font-bold mb-5">Contact Information</h2>
       <div className="flex flex-nowrap gap-5">
         <img
@@ -508,7 +537,6 @@ const ReviewsSection = () => {
   );
 };
 
-import { FaStar } from "react-icons/fa";
 const ReviewCard = ({ imgUrl }) => {
   return (
     <div className="flex gap-6 my-10 shadow pb-6">
@@ -562,18 +590,18 @@ const LeaveReviewSection = () => {
       ></textarea>
 
       <div className="flex lg:flex-row flex-col gap-6 mb-6">
-      <input
-        type="text"
-        placeholder="Name"
-        className="w-full p-4 border rounded-xl  focus:outline-neutral-400"
-      />
+        <input
+          type="text"
+          placeholder="Name"
+          className="w-full p-4 border rounded-xl  focus:outline-neutral-400"
+        />
 
-      <input
-        type="email
+        <input
+          type="email
           "
-        placeholder="Email"
-        className="w-full p-4 border rounded-xl focus:outline-neutral-400"
-      />
+          placeholder="Email"
+          className="w-full p-4 border rounded-xl focus:outline-neutral-400"
+        />
       </div>
 
       <input
@@ -595,5 +623,98 @@ const LeaveReviewSection = () => {
         <GoArrowRight className="w-5 h-5" />
       </div>
     </div>
+  );
+};
+
+const FloorPlanSection = () => {
+  const floors = ["First Floor", "Second Floor", "Third Floor"];
+  const [selectedOption, setSelectedOption] = useState(0);
+  return (
+    <div className="my-20">
+      <h2 className="text-xl font-bold mb-7">Floor Plans</h2>
+      <div className="w-full p-5 flex flex-nowrap overflow-x-auto gap-2 mb-6">
+        {floors.map((floor, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setSelectedOption(index)}
+              className={` font-semibold text-nowrap px-6 py-2 shadow rounded-full ${
+                selectedOption === index ? " bg-neutral-200" : ""
+              }`}
+            >
+              {floor}
+            </button>
+          );
+        })}
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <FloorPlanItem
+          icon={<FaBed className="text-2xl" />}
+          label="Bedrooms"
+          quantity={3}
+        />
+        <FloorPlanItem
+          icon={<FaBath className="text-2xl" />}
+          label="Bathrooms"
+          quantity={2}
+        />
+        <FloorPlanItem
+          icon={<HiOutlineSquare2Stack className="text-2xl" />}
+          label="Size"
+          quantity={`${500} SqFt`}
+        />
+        <FloorPlanItem
+          icon={<IoPricetagOutline className="text-2xl" />}
+          label="Size"
+          quantity={`$ 120000`}
+        />
+      </div>
+      <p className="my-6">
+        Lorem ipsum dolor sit amet, homero debitis temporibus in mei, at sit
+        voluptua antiopam hendrerit. Lorem epicuri eu per. Mediocrem torquatos
+        deseruisse te eum commodo.
+      </p>
+      <img
+        src="https://justhomnextjs.vercel.app/images/section/blueprint-1.png"
+        alt="floor Plan"
+        className="w-full object-cover"
+      />
+    </div>
+  );
+};
+
+const FloorPlanItem = ({ icon, label, quantity }) => {
+  return (
+    <div className=" p-7 flex flex-col border rounded-xl w-36 h-32">
+      {icon}
+      <p>{label}</p>
+      <div>{quantity}</div>
+    </div>
+  );
+};
+
+const VideoModal = ({ isVideoModalOpen, setIsVideoModalOpen, toggleModal }) => {
+  return (
+    isVideoModalOpen && (
+      <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center">
+        <div className="relative w-full sm:w-4/5 max-w-4xl p-10 rounded-lg shadow-lg">
+          <span
+            className="absolute top-2 right-2 text-white text-2xl cursor-pointer"
+            onClick={toggleModal}
+          >
+            &times;
+          </span>
+          <div className="relative pb-[56.25%] h-0 overflow-hidden max-w-full bg-black">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/ScMzIvxBSi4"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    )
   );
 };

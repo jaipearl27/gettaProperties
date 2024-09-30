@@ -72,11 +72,11 @@ const PropertySlick = (props) => {
           ))}
         </Slider>
       </div>
-      <div className="w-full h-[13vw] flex gap-3 overflow-x-scroll no-scrollbar ">
+      <div className="w-full h-[7vw] flex gap-2 md:gap-3 overflow-x-scroll no-scrollbar ">
         {imgArray.map((img, index) => (
           <img
             onClick={() => handleBottomImageClick(index)}
-            className="w-[18vw] h-full object-cover rounded-lg"
+            className="w-[10vw] h-full object-cover rounded-lg"
             src={img.imgUrl}
             alt="img"
             key={index}

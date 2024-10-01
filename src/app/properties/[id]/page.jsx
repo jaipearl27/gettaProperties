@@ -10,12 +10,58 @@ import {
   IoPlayOutline,
 } from "react-icons/io5";
 import { HiOutlineSquare2Stack } from "react-icons/hi2";
-import { FaBed, FaBath, FaStar } from "react-icons/fa";
+import { FaBed, FaBath, FaStar, FaWalking } from "react-icons/fa";
 import { GiHomeGarage } from "react-icons/gi";
 import { VscFilePdf } from "react-icons/vsc";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GoArrowRight } from "react-icons/go";
+import { LiaBicycleSolid } from "react-icons/lia";
+
+const properties = [
+  {
+    id: 1,
+    name: "Archer House",
+    price: "$815,000",
+    location: {
+      address: "148-37 88th Ave, Jamaica, NY",
+      zipCode: "11435",
+    },
+    beds: 4,
+    baths: 3,
+    sqft: 2660,
+    imgData: [
+      { imgUrl: "/img1.jpeg" },
+      { imgUrl: "/img2.jpeg" },
+      { imgUrl: "/img3.jpeg" },
+    ],
+    pillData: [
+      { label: "Active", bgColor: "bg-[#1f4b43] text-white" },
+      { label: "Verified", bgColor: "bg-[#e7c873]" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Sunset Villa",
+    price: "$1,200,000",
+    location: {
+      address: "250 Ocean Dr, Miami, FL",
+      zipCode: "33101",
+    },
+    beds: 5,
+    baths: 4,
+    sqft: 3500,
+    imgData: [
+      { imgUrl: "/img1.jpeg" },
+      { imgUrl: "/img2.jpeg" },
+      { imgUrl: "/img3.jpeg" },
+    ],
+    pillData: [
+      { label: "Active", bgColor: "bg-[#1f4b43] text-white" },
+      { label: "Verified", bgColor: "bg-[#e7c873]" },
+    ],
+  }
+];
 
 const cardData = {
   id: 1,
@@ -61,7 +107,7 @@ export default function PropertyPage() {
     console.log(id);
   }, [id]);
   return (
-    <div className="w-full pt-32 px-4 xl:px-16 bg-white text-[15px]">
+    <div className="w-full pt-32 px-4 xl:px-40 bg-white text-[15px]">
       <div className="w-full flex justify-between gap-3 flex-wrap">
         <div>
           <h2 className="text-2xl font-bold py-2">{cardData.name}</h2>
@@ -113,6 +159,7 @@ export default function PropertyPage() {
           <FactsNFeatureSection />
           <ScheduleTourComponent isPositionedOnTop={false} />
           <FloorPlanSection />
+          <MorgageSection />
           <ContactInfoSection isPositionedOnTop={false} />
           <div className="my-16">
             <h2 className="text-xl font-bold mb-6">Video</h2>
@@ -123,16 +170,94 @@ export default function PropertyPage() {
                 alt="videoPlaveholder"
               />
               <div
-              onClick={toggleModal}
-              className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 backdrop-blur-sm  rounded-full flex justify-center items-center">
-                <IoPlayOutline className="text-white h-6 w-6"/>
+                onClick={toggleModal}
+                className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 backdrop-blur-sm  rounded-full flex justify-center items-center"
+              >
+                <IoPlayOutline className="text-white h-6 w-6" />
               </div>
             </div>
           </div>
+
+          <div className="w-full mb-16">
+            <h2 className="text-xl font-bold mb-6">Map</h2>
+            <div class="w-full h-[30rem]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5794.122681030878!2d77.9967338936702!3d30.288197816318156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1727776763035!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div className="w-full my-20">
+            <h2 className="text-xl font-bold mb-6">Walk Score</h2>
+            <div className="flex gap-10">
+              <div class=" flex gap-6 items-center">
+                <div className="w-24 h-24 rounded-full border border-black flex justify-center items-center">
+                  <FaWalking className="text-4xl" />
+                </div>
+                <div className="">
+                  <p>Walk Score</p>
+                  <p>96 / 100</p>
+                  <p>Walker's Paradise</p>
+                </div>
+              </div>
+
+              <div class=" flex gap-6 items-center">
+                <div className="w-24 h-24 rounded-full border border-black flex justify-center items-center">
+                  <LiaBicycleSolid className="text-4xl" />
+                </div>
+                <div className="">
+                  <p>Bike Score</p>
+                  <p>96 / 100</p>
+                  <p>Bikeable</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full mb-16">
+            <h2 className="text-xl font-bold mb-6">What's Nearby?</h2>
+
+            <div className="mb-6 flex gap-5">
+              {["Health & Medical", "Food", "Schools"].map((item, index) => (
+                <button className=" py-3 mr-6  font-semibold hover:border-b hover:border-b-black transition-all ease-in-out duration-700" key={index}>{item}</button>
+              )) }
+              
+               </div>
+
+            <div className="space-y-10">
+              {[
+                "Cambria Heights Academy",
+                "Is 238 Susan B Anthony",
+                "Ps 95 Eastwood",
+              ].map((item, index) => (
+                <div key={index} className="flex gap-8 items-center">
+                  <div className=" h-16 w-16  rounded-full bg-[#e7c873] flex justify-center items-center">
+                    <div>
+                      <span className="text-[21px] font-semibold">9</span>/10
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-[17px]">{item}</p>
+                    <div className="flex gap-2">
+                      <p>Grades: K-5 </p>
+                      <p>Distance: 0.3 mi</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <ReviewsSection />
           <LeaveReviewSection />
+
+          <SimilarPropertiesSection />
         </div>
-        <div className=" w-full hidden lg:block space-y-7">
+        <div className=" w-full  hidden lg:block space-y-7">
           <ScheduleTourComponent />
           <ContactInfoSection />
         </div>
@@ -716,5 +841,158 @@ const VideoModal = ({ isVideoModalOpen, setIsVideoModalOpen, toggleModal }) => {
         </div>
       </div>
     )
+  );
+};
+import Chart from "chart.js/auto";
+import PropertyCard from "@/components/LandingPage/Carousel/PropertyCard";
+import Slider from "react-slick";
+
+const MorgageSection = () => {
+  const data = {
+    labels: ["Principal and Interest", "Property Tax", "HOA Fee"],
+    datasets: [
+      {
+        data: [37800, 24200, 24352],
+        backgroundColor: ["#F6CF64", "#1D9BF0", "#FF7C82"],
+        hoverBackgroundColor: ["#F3C13C", "#1687D9", "#FF6B6B"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  useEffect(() => {
+    // Initialize the chart after the component mounts
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    const options = {
+      cutout: "70%",
+      responsive: true,
+      circumference: 220,
+      rotation: -110,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          backgroundColor: "#fff",
+          bodyColor: "#000",
+        },
+      },
+    };
+
+    // Create the chart
+    const myChart = new Chart(ctx, {
+      type: "doughnut",
+      data: data,
+      options: options,
+    });
+
+    // Cleanup function to destroy the chart instance when the component unmounts
+    return () => {
+      myChart.destroy();
+    };
+  }, []);
+  return (
+    <div className="w-full mb-20">
+      <h2 className="text-xl font-bold">Mortgage Calculator</h2>
+
+      <div className="w-full flex flex-wrap sm:gap-10">
+        <div className="w-72">
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <div className="flex gap-12 items-end pb-16">
+          {data.labels.map((item, index) => (
+            <div key={index}>
+              <div className="flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full  bg-black `}></div>
+                <p>{item}</p>
+              </div>
+              <p className="ps-4 text-neutral-500">
+                ${data.datasets[0].data[index]}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 w-full gap-4 sm:grid-cols-3">
+          <input
+            type="text"
+            placeholder="Total Amount"
+            className="w-full  p-4 border rounded-xl focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="Down Payment"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+          <input
+            type="text"
+            placeholder="Interest Rate"
+            className="w-full  p-4 border rounded-xl focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="Long Terms (Years)"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="Property Tax"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="Home Insurance"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="Monthly HOA Fees"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+
+          <input
+            type="text"
+            placeholder="PMI"
+            className="w-full  p-4 border rounded-xl  focus:outline-neutral-400"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+const SimilarPropertiesSection = () => {
+
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows:false,
+
+  };
+  return (
+    <div className="w-full mb-20">
+      <h2 className="text-xl font-bold mb-6">Similar Properties</h2>
+
+      <div className="w-full">
+      <Slider
+      
+      {...settings}
+    >
+      {properties.map((item, index) => (
+        <PropertyCard key={index} cardData={item} />
+      ))}
+    </Slider>
+      </div>
+    </div>
   );
 };

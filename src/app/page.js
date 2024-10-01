@@ -60,9 +60,9 @@ const properties = [
     baths: 3,
     sqft: 2800,
     imgData: [
-      { imgUrl: "/img1.jpeg" },
-      { imgUrl: "/img2.jpeg" },
-      { imgUrl: "/img3.jpeg" },
+      { imgUrl: "/img4.jpeg" },
+      { imgUrl: "/img5.jpeg" },
+      { imgUrl: "/img6.jpeg" },
     ],
     pillData: [
       { label: "Active", bgColor: "bg-[#1f4b43] text-white" },
@@ -81,9 +81,8 @@ const properties = [
     baths: 5,
     sqft: 4500,
     imgData: [
-      { imgUrl: "/img1.jpeg" },
-      { imgUrl: "/img2.jpeg" },
-      { imgUrl: "/img3.jpeg" },
+      { imgUrl: "/img7.jpeg" },
+      { imgUrl: "/img8.jpeg" },
     ],
     pillData: [
       { label: "Active", bgColor: "bg-[#1f4b43] text-white" },

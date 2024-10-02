@@ -3,8 +3,10 @@ import Carousel from "@/components/LandingPage/Carousel/Carousel";
 import PropertyServiceSection from "@/components/LandingPage/Property/PropertyServiceSection";
 import PropertyRegionSection from "@/components/LandingPage/Property/PropertyRegionSection";
 import Testimonials from "@/components/LandingPage/Property/Testimonials";
-import { HiOutlineArrowSmRight } from "react-icons/hi";
+import PartnerSection from "@/components/LandingPage/Partners/PartnerSection";
 import PropertyTypeCard from "@/components/LandingPage/Property/PropertyTypeCard";
+
+
 const properties = [
   {
     id: 1,
@@ -174,17 +176,7 @@ const propertyTypes = [
   }
 ];
 
-const Partners = [
-  "https://gettaproperties.com/63091d69188a2236003ce924d54204ca.png",
-  "https://gettaproperties.com/f1fb0d5a1557b74aae55ab03608cc8d6.png",
-  "https://gettaproperties.com/51e4c25fdfab97e00fcd532bf211e2ae.png",
-  "https://gettaproperties.com/1da9d9c6bbe4ce5f92bf6724375319e2.png",
-  "https://gettaproperties.com/ac22aa3b4642143a6eed6fc448a582d7.png",
-  "https://gettaproperties.com/6de772ade0e19a15e83424b3cfc991b0.png",
-  "https://gettaproperties.com/b78bc04cc178dd5cbb104968aabc40d3.png",
-  "https://gettaproperties.com/f48a28526661479ac37b8b9e5e9e7e56.png",
-  "https://gettaproperties.com/7095896b05ef9d5095651287eb73256c.jpg",
-];
+
 const testimonialData = [
   {
     imgUrl: "https://img.youtube.com/vi/WrkCziYVofo/sddefault.jpg",
@@ -274,13 +266,12 @@ export default function Home() {
 
         <div className="text-3xl text-center font-bold py-12  text-black">
           Our Partners
+          <PartnerSection />
         </div>
-        <div className=" w-full pb-14  flex flex-wrap items-center justify-center gap-12">
-          {Partners.map((partner, index) => (
-            <img src={partner} alt="Logo" key={index} className="w-36 h-fit" />
-          ))}
-        </div>
+
       </div>
     </div>
   );
 }
+
+

@@ -28,7 +28,7 @@ const routes = [
   },
   {
     label: "Contact Us",
-    slug: "/",
+    slug: "/contact",
   },
 ];
 

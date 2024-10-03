@@ -9,31 +9,35 @@ import { useRef, useState, useEffect } from "react";
 const Carousel = ({propertiesData = []}) => {
 
     
-      const [visibleSlides, setVisibleSlides] = useState(4);
-    
-      useEffect(() => {
-        const handleResize = () => {
-          if (window.innerWidth < 520) {
-            setVisibleSlides(1);
-          } else if (window.innerWidth < 768) {
-            setVisibleSlides(2);
-          } else if (window.innerWidth < 1024) {
-            setVisibleSlides(4);
-          }
-        };
-        window.addEventListener("resize", handleResize);
-        handleResize();
-        return () => window.removeEventListener("resize", handleResize);
-      }, []);
     
       let sliderRef = useRef(null);
     
       const settings = {
         infinite: false,
         speed: 500,
-        slidesToShow: visibleSlides,
+        slidesToShow: 4,
         slidesToScroll: 1,
         arrows:false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+            }
+          },
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 2,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+            }
+          }
+        ],
         afterChange: current => {
           console.log("after",current);
         }
@@ -47,7 +51,7 @@ const Carousel = ({propertiesData = []}) => {
       };
 
   return (
-    <div className="w-full bg-white ">
+    <div className="w-full ">
     <Slider
       ref={(slider) => {
         sliderRef = slider;

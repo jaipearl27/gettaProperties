@@ -10,13 +10,15 @@ import {
   IoPlayOutline,
 } from "react-icons/io5";
 import { HiOutlineSquare2Stack } from "react-icons/hi2";
-import { FaBed, FaBath, FaStar, FaWalking } from "react-icons/fa";
+import { FaBed, FaBath, FaWalking } from "react-icons/fa";
 import { GiHomeGarage } from "react-icons/gi";
 import { VscFilePdf } from "react-icons/vsc";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GoArrowRight } from "react-icons/go";
 import { LiaBicycleSolid } from "react-icons/lia";
+import ReviewsSection from "@/components/Reviews/ReviewsSection";
+import LeaveReviewSection from "@/components/Reviews/LeaveReviewSection";
 
 const properties = [
   {
@@ -60,7 +62,7 @@ const properties = [
       { label: "Active", bgColor: "bg-[#1f4b43] text-white" },
       { label: "Verified", bgColor: "bg-[#e7c873]" },
     ],
-  }
+  },
 ];
 
 const cardData = {
@@ -222,10 +224,14 @@ export default function PropertyPage() {
 
             <div className="mb-6 flex gap-5">
               {["Health & Medical", "Food", "Schools"].map((item, index) => (
-                <button className=" py-3 mr-6  font-semibold hover:border-b hover:border-b-black transition-all ease-in-out duration-700" key={index}>{item}</button>
-              )) }
-              
-               </div>
+                <button
+                  className=" py-3 mr-6  font-semibold hover:border-b hover:border-b-black transition-all ease-in-out duration-700"
+                  key={index}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
 
             <div className="space-y-10">
               {[
@@ -646,111 +652,6 @@ const ContactInfoSection = ({ isPositionedOnTop = true }) => {
   );
 };
 
-const ReviewsSection = () => {
-  return (
-    <div className="my-16">
-      <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">4 Reviews</h2>
-        <button className="bg-[#1e302d] text-white px-4 py-2 rounded-xl">
-          Leave a review
-        </button>
-      </div>
-
-      <ReviewCard imgUrl="	https://justhomnextjs.vercel.app/images/author/author-5.png" />
-      <ReviewCard imgUrl="https://justhomnextjs.vercel.app/images/author/author-6.png" />
-    </div>
-  );
-};
-
-const ReviewCard = ({ imgUrl }) => {
-  return (
-    <div className="flex gap-6 my-10 shadow pb-6">
-      <img
-        className="sm:h-24 w-16 h-16 sm:w-24 rounded-full object-cover"
-        src={imgUrl}
-        alt="face"
-      />
-      <div>
-        <div className=" pt-4">
-          <div className="flex gap-1">
-            <FaStar className="text-yellow-400" />
-            <FaStar className="text-yellow-400" />
-            <FaStar className="text-yellow-400" />
-            <FaStar className="text-yellow-400" />
-            <FaStar className="text-yellow-400" />
-          </div>
-          <p className="font-semibold mt-2 text-[17px]">Jane Cooper</p>
-          <p className="mt-1">April 06, 2024 at 7:55 pm</p>
-
-          <p className="mt-7">
-            Beautiful home, very picturesque and close to everything in jtree! A
-            little warm for a hot weekend, but would love to come back during
-            the cooler seasons!
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const LeaveReviewSection = () => {
-  return (
-    <div className="my-20">
-      <h2 className="text-xl font-bold ">Leave A Review</h2>
-      <p className="my-6">
-        Your email address will not be published. Required fields are marked *
-      </p>
-      <p>Your Rating*</p>
-      <div className="flex gap-1">
-        <FaStar className="text-yellow-400" />
-        <FaStar className="text-yellow-400" />
-        <FaStar className="text-yellow-400" />
-        <FaStar className="text-yellow-400" />
-        <FaStar className="text-yellow-400" />
-      </div>
-      <textarea
-        placeholder="Your Comment"
-        rows={8}
-        className="w-full p-4 border mt-7 rounded-xl mb-6 focus:outline-neutral-400"
-      ></textarea>
-
-      <div className="flex lg:flex-row flex-col gap-6 mb-6">
-        <input
-          type="text"
-          placeholder="Name"
-          className="w-full p-4 border rounded-xl  focus:outline-neutral-400"
-        />
-
-        <input
-          type="email
-          "
-          placeholder="Email"
-          className="w-full p-4 border rounded-xl focus:outline-neutral-400"
-        />
-      </div>
-
-      <input
-        type="text"
-        placeholder="Website"
-        className="w-full p-4 border rounded-xl mb-6 focus:outline-neutral-400"
-      />
-
-      <div className="flex gap-2 items-center mb-6 justify-center lg:justify-start">
-        <input type="checkbox" className="w-5 h-5" />
-        <p>
-          Save my name, email, and website in this browser for the next time I
-          comment.
-        </p>
-      </div>
-
-      <div className="bg-[#e7c873] text-md flex justify-center lg:mx-0  mx-auto items-center gap-3 w-fit rounded-xl px-7 py-4">
-        <div>Submit Review</div>
-        <GoArrowRight className="w-5 h-5" />
-      </div>
-    </div>
-  );
-};
-
 const FloorPlanSection = () => {
   const floors = ["First Floor", "Second Floor", "Third Floor"];
   const [selectedOption, setSelectedOption] = useState(0);
@@ -968,30 +869,24 @@ const MorgageSection = () => {
   );
 };
 
-
 const SimilarPropertiesSection = () => {
-
   const settings = {
     infinite: false,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows:false,
-
+    arrows: false,
   };
   return (
     <div className="w-full mb-20">
       <h2 className="text-xl font-bold mb-6">Similar Properties</h2>
 
       <div className="w-full">
-      <Slider
-      
-      {...settings}
-    >
-      {properties.map((item, index) => (
-        <PropertyCard key={index} cardData={item} />
-      ))}
-    </Slider>
+        <Slider {...settings}>
+          {properties.map((item, index) => (
+            <PropertyCard key={index} cardData={item} />
+          ))}
+        </Slider>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const routes = [
   },
   {
     label: "Blog",
-    slug: "/",
+    slug: "/blogs",
   },
   {
     label: "Contact Us",

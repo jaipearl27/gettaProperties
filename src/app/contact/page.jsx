@@ -88,14 +88,22 @@ const page = () => {
         </div>
       </div>
 
-      <div className="w-full ">
-        <p className="text-center mb-7 text-[17px]">Thousands of world’s leading companies trust Space</p>
-        <PartnerSection/>  
+      <div className="w-full mb-40 xl:px-32">
+        <p className="text-center mb-7 text-[17px] ">
+          Thousands of world’s leading companies trust Space
+        </p>
+        <PartnerSection />
       </div>
 
-      <div className="">
-        <div></div>
-        <div></div>
+      <div className=" flex justify-between items-center w-full xl:px-32">
+        <div>
+          <h2 className="text-[30px] font-bold mb-5">  Become an Real Estate Agent</h2>
+          <p className="text-neutral-500 text-[17px]">We only work with the best companies around the globe</p>
+        </div>
+        <div className="bg-[#e7c873] flex justify-center items-center gap-3 w-fit rounded-xl p-4">
+          <div>Send Message</div>
+          <GoArrowRight className="w-5 h-5" />
+        </div>
       </div>
     </div>
   );

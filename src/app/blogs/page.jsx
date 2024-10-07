@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useId, useState } from "react";
-import { LuDot } from "react-icons/lu";
+import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { BsDash } from "react-icons/bs";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { GoChevronLeft } from "react-icons/go";
+import BlogCard from "@/components/Blogs/BlogCard";
 
 const blogs = [
   {
@@ -62,6 +61,8 @@ const recentBlogs = [
   },
 ];
 const page = () => {
+
+
   return (
     <div className="py-32 min-h-screen">
       <h1 className="text-center text-4xl font-bold py-24">Blog Pages</h1>
@@ -148,32 +149,6 @@ const RightPanel = () => {
             )
           )}
         </div>
-      </div>
-    </div>
-  );
-};
-
-const BlogCard = (props) => {
-  const { blog } = props;
-
-  return (
-    <div className="w-full rounded-xl sm:h-[22rem] sm:flex overflow-hidden group">
-      <div className="sm:w-[40%] w-full h-full overflow-hidden">
-        <img
-          src={blog.imgUrl}
-          alt="sdfsd"
-          className="h-full w-full object-cover group-hover:animate-zoomInOut"
-        />
-      </div>
-      <div className="sm:w-[60%] w-full h-[22rem] px-8 flex flex-col gap-5 justify-center">
-        <div className="flex gap-1 items-center">
-          <p>{blog.type}</p>
-          <LuDot />
-          <p>{blog.date}</p>
-        </div>
-        <h2 className="text-[21px] font-bold">{blog.title}</h2>
-        <p className="line-clamp-3 text-neutral-600">{blog.description}</p>
-        <div>Read More</div>
       </div>
     </div>
   );

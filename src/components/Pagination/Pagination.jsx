@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
-const PaginationComponent = ({ totalPages }) => {
+const PaginationComponent = ({ totalPages=1, className="" }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePrevious = () => {
@@ -22,7 +22,7 @@ const PaginationComponent = ({ totalPages }) => {
   };
 
   return (
-    <div className="w-full flex justify-center gap-8">
+    <div className={`w-full flex justify-center gap-8 ${className} `}>
       <div className="flex h-10 justify-center items-center w-fit">
         <button
         className="px-4 h-full border border-neutral-700 rounded-l-lg flex items-center"
@@ -30,7 +30,7 @@ const PaginationComponent = ({ totalPages }) => {
           <FaCaretLeft size={20} />
         </button>
         <div
-        className="px-4 h-full border-y border-neutral-700 flex items-center"
+        className="px-6 h-full border-y border-neutral-700 flex items-center"
         >{currentPage}</div>
         <button 
         className="px-4 h-full  border border-neutral-700 rounded-r-lg flex items-center"
@@ -43,8 +43,11 @@ const PaginationComponent = ({ totalPages }) => {
         <p>Go to page: </p>
         <input
               type="Number"
+              onChange={handleGoToPage}
+              min={1}
+              max={totalPages}
               placeholder="1"
-              className=" border p-2 w-12 rounded-xl placeholder:text-black border-neutral-700"
+              className=" border px-2 h-full w-12 rounded-xl focus:outline-none placeholder:text-black border-neutral-700"
             />
         <p>of {totalPages}</p>
 

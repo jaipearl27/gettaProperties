@@ -14,6 +14,18 @@ const reviewData = [
     date: "Dec 12, 2022",
     description: "Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!"
   },
+  {
+    imgUrl: "	https://justhomnextjs.vercel.app/images/author/author-5.png",
+    name: "John Doe",
+    date: "Dec 12, 2022",
+    description: "Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!"
+  },
+  {
+    imgUrl: "	https://justhomnextjs.vercel.app/images/author/author-6.png",
+    name: "Jane Doe",
+    date: "Dec 12, 2022",
+    description: "Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!"
+  },
 ];
 
 const reviews = () => {
@@ -27,9 +39,9 @@ const reviews = () => {
         {reviewData.map((review, index) => (
           <ReviewCard key={index} {...review} />
         ))}
+        <PaginationComponent totalPages={10} />
 
       </div>
-      <PaginationComponent totalPages={10} />
     </div>
   );
 };

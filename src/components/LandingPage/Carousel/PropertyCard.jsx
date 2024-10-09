@@ -139,7 +139,7 @@ const PropertyCard = ({ cardData }) => {
 
 export default PropertyCard;
 
-const Pills = (props) => {
+export const Pills = (props) => {
   const { pillData, className = "" } = props;
 
   return (

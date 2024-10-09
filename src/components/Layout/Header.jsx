@@ -4,7 +4,7 @@ import logo from "../../../public/logo.svg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
-
+import { useRouter } from "next/navigation";
 const routes = [
   {
     label: "Buy",
@@ -24,7 +24,7 @@ const routes = [
   },
   {
     label: "Blog",
-    slug: "/",
+    slug: "/blogs",
   },
   {
     label: "Contact Us",
@@ -35,6 +35,7 @@ const routes = [
 const Header = () => {
   // const [scrolled, setScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const router = useRouter();
 
 
   function handleMenuClick() {
@@ -69,7 +70,9 @@ const Header = () => {
     >
       <div className="flex lg:transparent justify-between">
         <div className=" h-full min-w-28">
-          <Image src={logo} alt="Logo" className="h-full" />
+          <Image src={logo} alt="Logo" onClick={() => {
+            router.push("/")
+          }} className="h-full cursor-pointer" />
         </div>
         <div className="w-full   lg:flex justify-center hidden">
           <ul className="flex w-fit gap-4 xl:gap-8 h-full items-center font-semibold">

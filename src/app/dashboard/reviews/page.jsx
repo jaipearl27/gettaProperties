@@ -1,4 +1,5 @@
-import ReviewCard from "./ReviewCard";
+import PaginationComponent from "@/components/Pagination/Pagination";
+import ReviewCard from "@/components/Reviews/ReviewCard";
 
 const reviewData = [
   {
@@ -15,22 +16,22 @@ const reviewData = [
   },
 ];
 
-const ReviewsSection = () => {
-    return (
-      <div className="my-16">
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl font-bold">4 Reviews</h2>
-          <button className="bg-[#1e302d] text-white px-4 py-2 rounded-xl">
-            Leave a review
-          </button>
-        </div>
+const reviews = () => {
+  return (
+    <div className="w-full pt-14">
+      <h2 className="text-[26px] font-bold">Reviews</h2>
+      <p className="text-neutral-600  mt-1">We are glad to see you again!</p>
+
+      <div className=" p-10">
 
         {reviewData.map((review, index) => (
           <ReviewCard key={index} {...review} />
         ))}
-      </div>
-    );
-  };
 
-  export default ReviewsSection;
-  
+      </div>
+      <PaginationComponent totalPages={10} />
+    </div>
+  );
+};
+
+export default reviews;

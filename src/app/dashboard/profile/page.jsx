@@ -58,17 +58,17 @@ const ProfileInfoForm = () => {
     }
   };
   return (
-    <form className="my-4 mx-8 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex w-full mb-10">
+    <form className="my-4 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex w-full mb-10 lg:flex-row flex-col ">
         <div>
           <img
-            className=" w-50 h-50 sm:w-36 object-cover sm:h-36 rounded-full"
+            className=" w-36 object-cover h-36 rounded-full"
             src={photo || "/profile_placeholder.png"}
             alt="No Image"
           />
         </div>
 
-        <div className="flex flex-col justify-center px-8">
+        <div className="flex flex-col justify-center lg:px-8">
           <label htmlFor="file_input" className=" gap-1 cursor-pointer ">
             <div className="flex mb-2  items-center gap-2 rounded-xl border px-8 py-3 w-fit">
               <p className="text-sm font-semibold">Upload Image</p>
@@ -92,7 +92,7 @@ const ProfileInfoForm = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Username"
@@ -115,7 +115,7 @@ const ProfileInfoForm = () => {
         className="w-full p-4 border mb-8 rounded-xl placeholder:text-black focus:outline-neutral-400"
       ></textarea>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Job"
@@ -131,7 +131,7 @@ const ProfileInfoForm = () => {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Phone"
@@ -153,7 +153,7 @@ const ProfileInfoForm = () => {
         <option>Pakistan</option>
       </select>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Friendly Address"
@@ -179,7 +179,7 @@ const ProfileInfoForm = () => {
         ></iframe>
       </div>
 
-      <div className="grid grid-cols-3 gap-8 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
         <input
           type="text"
           placeholder="X"
@@ -216,8 +216,8 @@ const ChangePasswordForm = () => {
   };
 
   return (
-    <form className="my-4 mx-8 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-2 gap-8 mb-8">
+    <form className="my-4 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Facebook Url"
@@ -232,7 +232,7 @@ const ChangePasswordForm = () => {
           className="w-full p-4 border rounded-xl placeholder:text-black focus:outline-neutral-400"
         />
       </div>
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="Instagram Url"
@@ -268,7 +268,7 @@ const SocialMediaForm = () => {
     console.log(data);
   };
   return (
-    <form className="my-4 mx-8 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
+    <form className="my-4 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
         placeholder="Old Password"
@@ -276,7 +276,7 @@ const SocialMediaForm = () => {
         {...register("old_password")}
       />
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <input
           type="text"
           placeholder="New Password"

@@ -92,7 +92,7 @@ const Header = () => {
           <div className="hidden xl:block text-nowrap">+91 7204248282</div>
           <Link className="text-nowrap" href={"/"}>Sign in/up</Link>
           <Link
-            href={"/"}
+             href={"/dashboard/properties"}
             className="border text-nowrap border-[#fffefe] rounded-full w-fit px-4 py-2 hover:bg-blue-600 hover:border-[#ffffff] hover:text-white transition duration-300"
           >
             Add Property
@@ -137,7 +137,7 @@ const Header = () => {
 
             <div className="h-12 w-full flex">
             <Link
-            href={"/"}
+            href={"/dashboard/properties"}
             className="border border-neutral-800 rounded-full w-fit flex justify-center items-center px-4 hover:bg-blue-600 hover:border-[#ffffff] hover:text-white transition duration-300"
           >
             Add Property

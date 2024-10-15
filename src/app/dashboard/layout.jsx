@@ -89,7 +89,7 @@ const DashboardLayout = ({ children }) => {
         )}
       </div>
       <div
-        className={`w-[20rem] md:w-[27rem] z-50 h-[90dvh] md:h-full flex py-5 absolute md:relative md:left-0 md:top-0 ${
+        className={`w-[20rem] md:w-[27rem] z-10 h-[90dvh] md:h-full flex py-5 absolute md:relative md:left-0 md:top-0 ${
           isSidePanelOpen ? "left-0 top-[120px]" : "-left-[20rem]"
         } `}
       >

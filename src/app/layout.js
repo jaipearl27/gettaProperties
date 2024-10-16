@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import StoreProvider from "./StoreProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,9 +30,11 @@ export default function RootLayout({ children }) {
       <body
         className={`font-roboto text-[#1a1a1a] antialiased`}
       >
+        <StoreProvider>
         <Header />
         {children}
         <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

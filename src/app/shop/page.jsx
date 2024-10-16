@@ -1,7 +1,10 @@
 "use client";
+import { useDispatch, useSelector } from "react-redux";
 import PaginationComponent from "@/components/Pagination/Pagination";
 import React, { useState } from "react";
 import { GoArrowRight } from "react-icons/go";
+import { addToCart } from "../lib/features/cartSlice/cartSlice";
+import { useRouter } from "next/navigation";
 const products = [
   {
     id: 1,
@@ -133,6 +136,9 @@ const products = [
 ];
 
 const Page = () => {
+  const {cartData} =  useSelector(state => state.cart);
+  console.log(cartData, "cartData");
+
   return (
     <div className="min-h-screen py-52 px-5">
       <h1 className="text-center text-5xl font-bold mb-14">Shop List</h1>
@@ -154,16 +160,31 @@ const Page = () => {
 export default Page;
 
 const ProductCard = ({ product }) => {
+
+
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      ...product,
+      quantity: 1, // Default quantity set to 1
+    };
+    dispatch(addToCart(cartItem));
+    router.push('shop/cart')
+  };
   return (
     <div className="w-full group">
       <div className="w-full h-0 relative pb-[100%] rounded-xl overflow-hidden ">
         <img
           src={product.image}
           alt="img"
-          className="w-full h-full object-cover  absolute top-0 left-0"
+          className="w-full h-full object-cover  absolute top-0 left-0 group-hover:animate-zoomInOut "
         />
 
-        <div className=" cursor-pointer  absolute group-hover:bottom-3 group-hover:opacity-100 opacity-0 -bottom-1 transition-all duration-300 ease-in-out left-4 right-4 rounded-lg bg-white items-center py-4 flex justify-center gap-4">
+        <div 
+        onClick={handleAddToCart}
+        className=" cursor-pointer  absolute group-hover:bottom-3 group-hover:opacity-100 opacity-0 -bottom-1 transition-all duration-300 ease-in-out left-4 right-4 rounded-lg bg-white items-center py-4 flex justify-center gap-4">
           <p>Add to Cart</p>
           <GoArrowRight size={20} />
         </div>

@@ -385,6 +385,11 @@ function Properties() {
           )
         }
       />
+
+
+
+
+      
       {/* Edit button - visible only on hover */}
       <TiPencil
         size="35"

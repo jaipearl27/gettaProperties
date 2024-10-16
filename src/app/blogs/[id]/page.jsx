@@ -60,7 +60,7 @@ const page = () => {
 
         <div className="text-neutral-500  flex items-center my-3 gap-1">
           <p>{Data.type}</p> <LuDot />
-          <p>{Data.date}</p>{" "}
+          <p>{Data.date}</p>
         </div>
 
         <p className="text-justify mt-10">{Data.description}</p>
@@ -94,7 +94,7 @@ const SimilarBlogCard = (props) => {
     const { relatedBlog } = props
     return (
         <div className="w-full h-full flex flex-col">
-            <div className=" flex max-h-96 lg:max-h-56 justify-center items-center overflow-hidden">
+            <div className=" flex max-h-72 lg:max-h-56 justify-center items-center overflow-hidden">
               <img
                 src={relatedBlog.imgUrl}
                 alt="img"
@@ -102,13 +102,13 @@ const SimilarBlogCard = (props) => {
               />
             </div>
 
-            <div className="w-full h-auto p-5 flex flex-col items-center">
-              <div className="text-neutral-500 justify-center  flex items-center my-3 gap-1">
+            <div className="w-full h-auto p-1 flex flex-col items-center">
+              <div className="text-neutral-500 justify-center  self-start flex items-center my-2 gap-1">
                 <p>{relatedBlog.type}</p> <LuDot />
-                <p>{relatedBlog.date}</p>{" "}
+                <p>{relatedBlog.date}</p>
               </div>
 
-              <h3 className="text-[17px] text-center font-semibold">
+              <h3 className="text-[12px] text-center font-base text-1xl text-neutral-500">
                 {relatedBlog.title}
               </h3>
 

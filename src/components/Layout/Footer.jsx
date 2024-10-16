@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="relative z-10 bg-black text-white w-full p-5">
+    <div className="relative z-10 bg-black text-white w-full p-5 px-24">
       <div className=" flex sm:flex-row flex-col gap-5 justify-between border-b py-5 border-b-neutral-800">
         <Image src={logo} alt="Logo" className="h-20" />
 

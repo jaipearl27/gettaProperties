@@ -159,7 +159,7 @@ function Properties() {
 
         <div className="w-full mt-10 p-10 bg-white border border-neutral-200 rounded-xl">
           <h3 className="text-xl font-bold">Additional</h3>
-          <form className="my-4 mx-8 sm:mx-2" onSubmit={handleSubmit(onsubmit)}>
+          <form className="my-4 mx-8 sm:mx-2" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-2 gap-8 mb-8">
               <input
                 type="text"

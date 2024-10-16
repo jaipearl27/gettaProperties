@@ -8,11 +8,11 @@ import { useRouter } from "next/navigation";
 const routes = [
   {
     label: "Buy",
-    slug: "/",
+    slug: "/buy",
   },
   {
     label: "Rent",
-    slug: "/",
+    slug: "/rent",
   },
   {
     label: "Post Your Requirements",
